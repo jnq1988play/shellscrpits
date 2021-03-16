@@ -111,6 +111,23 @@ funGMenu(){
                             esac
                          done
 }
+funUserControl(){
+echo 1.锁定用户
+echo 2.解锁用户
+read -p "请输入要执行的操作:" UCNum
+case $UCNum in
+      1)echo 锁定用户
+        read -p "请输入要锁定的用户:" LockedUser
+        passwd -l $LockedUser
+        continue
+        ;;
+      2)echo 解锁用户
+        read -p "请输入要解锁的用户:" UnlockUser
+        passwd -u -f $UnlockUser
+        continue
+        ;;
+esac
+}
 while true
   do
     funMenu
@@ -132,6 +149,7 @@ while true
                     funGMenu
                   ;;
                   5)echo 用户管理
+                    funUserControl
                   ;;
                   q|quit|Quit|exit|6)echo 退出
                          exit
