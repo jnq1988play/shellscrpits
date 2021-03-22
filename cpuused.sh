@@ -8,9 +8,11 @@ while [ $i -le 5 ]
 do
 if [ $UNum -ge $CNum ]
 then
+    echo $Used
     echo "CPU负载过高" #|#mail -s "CPU负载过高"  XXXXXXXXXX@XXX.com
 else
     echo "it's ok"
+    echo $Used
 fi
 let i++
 sleep 5s
